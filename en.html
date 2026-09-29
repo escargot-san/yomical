@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>YomiCal Help | Voice alerts for your calendar</title>
+<meta name="description" content="YomiCal is an Android app that reads your Google Calendar events aloud with TTS at the volume you choose.">
+<meta property="og:title" content="YomiCal Help">
+<meta property="og:description" content="An Android app that reads your Google Calendar events aloud at the volume you choose.">
+<meta property="og:image" content="assets/img/banner-en.jpg">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="ja" href="index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4"/><path d="M8 12h2l3-2.5v7L10 14H8z" fill="#fff"/><path d="M15.5 11a3 3 0 0 1 0 4"/></svg></span>
+      YomiCal
+    </a>
+    <nav class="site-nav">
+      <a href="#about">What is YomiCal?</a>
+      <a href="#features">Features</a>
+      <a href="#settings">Settings</a>
+      <a class="lang" href="index.html">日本語</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <img src="assets/img/banner-en.jpg" width="1794" height="876" alt="YomiCal: Voice alerts for your calendar schedule">
+</div>
+
+<main>
+
+  <section id="about">
+    <span class="eyebrow">ABOUT</span>
+    <h2>What is YomiCal?</h2>
+    <div class="lead">
+      <p><strong>It reads your Google Calendar events aloud with TTS, at the volume you set.</strong></p>
+      <p style="margin:0">That's all it does. A simple app for Android.</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <span class="eyebrow">FEATURES</span>
+    <h2>Features</h2>
+    <div class="feature-intro">
+      <p>At each event's notification time, YomiCal reads the event aloud with TTS at the volume you choose.</p>
+      <p>Instead of just a beep, it tells you <em>what</em> the event is, which helps you avoid problems like these.</p>
+    </div>
+
+    <h3 class="aruaru-title">Sound familiar?</h3>
+    <ul class="aruaru">
+      <li>The notification sound is too short or too quiet to notice.</li>
+      <li>You have to add a separate event just to be reminded when something ends, and sometimes you forget.</li>
+      <li>Your phone is on vibrate, so you miss the notification.</li>
+      <li>Your phone switched to silent mode without you noticing.</li>
+      <li>The event is in your notification shade, but you never see it.</li>
+      <li>You set an alarm for an event, but can't remember what it was for.</li>
+      <li>You stop the alarm on reflex and forget you had somewhere to be.</li>
+    </ul>
+    <p class="solve">YomiCal speaks the event itself at a fixed volume, so you don't miss it.</p>
+  </section>
+
+  <section id="settings">
+    <span class="eyebrow">SETTINGS</span>
+    <h2>Settings</h2>
+    <p class="default">Screenshots show the Japanese UI.</p>
+
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-1.jpg" width="540" height="1045" alt="Settings screen 1: volume and prefixes" loading="lazy">
+        <figcaption>Settings (1/3)</figcaption>
+      </figure>
+      <div>
+        <div class="setting">
+          <h3>Volume</h3>
+          <p>Choose how the read-out volume is decided.</p>
+          <ul>
+            <li><b>Follow system volume</b>: uses your phone's current volume.</li>
+            <li><b>Use fixed app volume</b>: reads at the volume set with the slider (0–100%), regardless of the phone's volume.</li>
+            <li><b>Vibrate only</b>: no sound, just vibration.</li>
+          </ul>
+          <p>Tap "Test playback at this volume" to hear how it sounds.</p>
+        </div>
+        <div class="setting">
+          <h3>Prefixes to read aloud (comma-separated)</h3>
+          <p>Only events whose titles start with one of these prefixes are read aloud. Separate multiple prefixes with commas (<code>,</code>).</p>
+          <div class="example">Example: set <code>yomical:,rc:</code>, then add an event titled "<code>yomical:</code>Dentist" and it will be read aloud.</div>
+        </div>
+        <div class="setting">
+          <h3>End-time prefixes (comma-separated)</h3>
+          <p>Events whose titles start with one of these prefixes are also read aloud at their end time, so you don't need a separate event to mark the end.</p>
+          <div class="example">Example: set <code>ye:</code> and add "<code>ye:</code>Meeting" to be alerted when the meeting ends.</div>
+        </div>
+        <div class="setting">
+          <h3>Use alternative text at end time</h3>
+          <p>When on, events with an end-time prefix are read using your custom text instead of the event title.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-2.jpg" width="540" height="1045" alt="Settings screen 2: auto-stop, read-out options, language, theme" loading="lazy">
+        <figcaption>Settings (2/3)</figcaption>
+      </figure>
+      <div>
+        <div class="setting">
+          <h3>Alarm auto-stop timer</h3>
+          <p>Set how long the alert keeps going before it stops automatically, so it won't keep running if you miss it.</p>
+        </div>
+        <div class="setting">
+          <h3>Read-out options</h3>
+          <ul>
+            <li><b>Also read event details (description)</b>: reads the event's description after the title.</li>
+            <li><b>Vibrate while speaking</b>: vibrates the phone during the read-out.</li>
+          </ul>
+        </div>
+        <div class="setting">
+          <h3>Language</h3>
+          <p>Choose the app's display language.</p>
+        </div>
+        <div class="setting">
+          <h3>Theme</h3>
+          <p>Choose the color scheme, such as dark.</p>
+        </div>
+        <div class="setting">
+          <h3>All-day event read-out time</h3>
+          <p>All-day events have no start time, so choose when they should be read aloud.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-3.jpg" width="540" height="1045" alt="Settings screen 3: events without prefix, startup, calendar filter" loading="lazy">
+        <figcaption>Settings (3/3)</figcaption>
+      </figure>
+      <div>
+        <div class="setting">
+          <h3>Also notify events without a prefix</h3>
+          <p>When on, regular events without a prefix (such as <code>yomical:</code>) are also announced, using a fixed text you set.</p>
+        </div>
+        <div class="setting">
+          <h3>Start on boot</h3>
+          <p>Check "Start automatically on boot" and YomiCal will begin running again after your phone restarts.</p>
+        </div>
+        <div class="setting">
+          <h3>Calendar filter</h3>
+          <p>Turn on "Filter by calendar account" to read aloud only events from the calendars you select.</p>
+        </div>
+        <div class="setting">
+          <h3>Save settings and start service</h3>
+          <p>After changing settings, tap this button at the bottom. Your settings are saved and the read-out service starts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <a href="index.html">日本語</a>
+  <p style="margin:8px 0 0">© 2026 YomiCal</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>よみカレ ヘルプ | カレンダーの予定を音声でお知らせ</title>
+<meta name="description" content="よみカレは、Google カレンダーの予定を設定した音量でTTSが読み上げるAndroidアプリです。">
+<meta property="og:title" content="よみカレ ヘルプ">
+<meta property="og:description" content="Google カレンダーの予定を、設定した音量で読み上げるAndroidアプリ。">
+<meta property="og:image" content="assets/img/banner-ja.jpg">
+<meta property="og:type" content="website">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4"/><path d="M8 12h2l3-2.5v7L10 14H8z" fill="#fff"/><path d="M15.5 11a3 3 0 0 1 0 4"/></svg></span>
+      よみカレ
+    </a>
+    <nav class="site-nav">
+      <a href="#about">よみカレって何？</a>
+      <a href="#features">特徴</a>
+      <a href="#settings">設定できる内容</a>
+      <a class="lang" href="en.html">English</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <img src="assets/img/banner-ja.jpg" width="1794" height="876" alt="よみカレ：カレンダーの予定を音声でお知らせ">
+</div>
+
+<main>
+
+  <section id="about">
+    <span class="eyebrow">ABOUT</span>
+    <h2>よみカレって何？</h2>
+    <div class="lead">
+      <p><strong>Google カレンダーの予定を、設定した音量でTTSが読み上げる。</strong></p>
+      <p style="margin:0">ただ、それだけのAndroid用のアプリケーションです。</p>
+    </div>
+  </section>
+
+  <section id="features">
+    <span class="eyebrow">FEATURES</span>
+    <h2>特徴</h2>
+    <div class="feature-intro">
+      <p>Google カレンダーの予定を、設定した通知時刻に、指定の音量でTTSが読み上げます。</p>
+      <p>音で鳴らすだけでなく「何の予定か」を声で伝えるので、以下のようなトラブルを防げます。</p>
+    </div>
+
+    <h3 class="aruaru-title">カレンダーあるある</h3>
+    <ul class="aruaru">
+      <li>予定の通知音が短すぎる・小さすぎて気づかない。</li>
+      <li>予定の終了時刻を知らせるために、別の予定を追加する手間・漏れ。</li>
+      <li>マナーモードにより、通知に気づかない。</li>
+      <li>勝手にサイレントモードになっていて気づかない。</li>
+      <li>通知欄に予定が出ていても気づかない。</li>
+      <li>予定の時刻にアラーム音を設定したが、何の予定だったか思い出せない。</li>
+      <li>アラーム音だと、とっさに止めてしまい、予定があったことを忘れる。</li>
+    </ul>
+    <p class="solve">よみカレなら、決まった音量で予定の内容そのものを読み上げるので、聞き逃しを防げます。</p>
+  </section>
+
+  <section id="settings">
+    <span class="eyebrow">SETTINGS</span>
+    <h2>設定できる内容</h2>
+
+    <!-- 画面1 -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-1.jpg" width="540" height="1045" alt="設定画面1：音量・プレフィックス設定" loading="lazy">
+        <figcaption>設定画面（1/3）</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="volume">
+          <h3>音量設定</h3>
+          <p>読み上げるときの音量の決め方を選びます。</p>
+          <ul>
+            <li><b>OSのボリュームに従う</b>：端末の音量設定のまま読み上げます。</li>
+            <li><b>アプリ固定音量を指定</b>：端末の音量に関係なく、下のスライダーで決めた音量（0〜100%）で読み上げます。</li>
+            <li><b>バイブレーションのみ</b>：音は出さず、バイブレーションだけでお知らせします。</li>
+          </ul>
+          <p>「この音量でテスト再生」で、実際の聞こえ方を確認できます。</p>
+        </div>
+        <div class="setting" id="prefix">
+          <h3>読み上げ対象にするプレフィックス（カンマ区切り）</h3>
+          <p>ここで指定した文字で始まる予定だけを読み上げます。複数指定する場合はカンマ（<code>,</code>）で区切ります。</p>
+          <div class="example">例：<code>yomical:,rc:</code> と設定し、カレンダーに「<code>yomical:</code>歯医者」と予定を登録すると、その予定が読み上げ対象になります。</div>
+        </div>
+        <div class="setting" id="end-prefix">
+          <h3>終了時刻読み上げプレフィックス（カンマ区切り）</h3>
+          <p>ここで指定した文字で始まる予定は、終了時刻にも読み上げます。終了を知らせるための予定を別に追加する必要がありません。</p>
+          <div class="example">例：<code>ye:</code> と設定し、「<code>ye:</code>会議」と登録すると、会議の終了時刻にもお知らせします。</div>
+        </div>
+        <div class="setting" id="end-alt">
+          <h3>終了時に代替で読み上げる</h3>
+          <p>オンにすると、終了時刻プレフィックスがついている予定のタイトルの代わりに、指定した文章で読み上げます。</p>
+          <p class="default">文章の例：「終了時刻を迎える予定があります」</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 画面2 -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-2.jpg" width="540" height="1045" alt="設定画面2：自動停止・読み上げオプション・言語・テーマ" loading="lazy">
+        <figcaption>設定画面（2/3）</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="auto-stop">
+          <h3>アラーム自動停止タイマー</h3>
+          <p>お知らせを自動で止めるまでの時間を、スライダーで設定します。止め忘れても、設定した時間が過ぎると自動で停止します。</p>
+          <p class="default">画面の例：5分</p>
+        </div>
+        <div class="setting" id="read-options">
+          <h3>読み上げオプション</h3>
+          <ul>
+            <li><b>予定の詳細（説明文）も読み上げる</b>：タイトルに加えて、予定の説明欄の内容も読み上げます。</li>
+            <li><b>音声再生と同時にバイブレーションを鳴らす</b>：読み上げと一緒に端末を振動させます。</li>
+          </ul>
+        </div>
+        <div class="setting" id="language">
+          <h3>言語</h3>
+          <p>アプリの表示言語を選びます。</p>
+        </div>
+        <div class="setting" id="theme">
+          <h3>テーマ</h3>
+          <p>画面の配色（ダークなど）を選びます。</p>
+        </div>
+        <div class="setting" id="allday">
+          <h3>終日予定の読み上げ時刻</h3>
+          <p>終日予定には開始時刻がないため、何時に読み上げるかをここで指定します。</p>
+          <p class="default">画面の例：7:00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 画面3 -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-3.jpg" width="540" height="1045" alt="設定画面3：プレフィックスなし予定・起動時設定・カレンダーフィルター" loading="lazy">
+        <figcaption>設定画面（3/3）</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="no-prefix">
+          <h3>プレフィックスなし予定も通知</h3>
+          <p>オンにすると、プレフィックス（<code>yomical:</code> など）がついていない通常の予定も、指定した固定文章で読み上げます。</p>
+          <p class="default">文章の例：「詳細をご確認ください。」</p>
+        </div>
+        <div class="setting" id="boot">
+          <h3>起動時設定</h3>
+          <p>「起動時に自動で常駐を開始する」にチェックを入れると、端末の再起動後も自動でよみカレが動き始めます。</p>
+        </div>
+        <div class="setting" id="filter">
+          <h3>カレンダーフィルター</h3>
+          <p>「カレンダーアカウントで絞り込む」をオンにすると、選択したカレンダーの予定だけを読み上げます。</p>
+        </div>
+        <div class="setting" id="save">
+          <h3>設定を保存してサービスを開始する</h3>
+          <p>設定を変更したら、画面下のこのボタンを押してください。設定が保存され、読み上げサービスが開始します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <a href="en.html">English</a>
+  <p style="margin:8px 0 0">© 2026 よみカレ</p>
+</footer>
+
+</body>
+</html>
