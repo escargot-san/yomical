@@ -94,14 +94,22 @@
         <div class="setting">
           <h3>Prefixes to read aloud (comma-separated)</h3>
           <p>Only events whose titles start with one of these prefixes are read aloud. Separate multiple prefixes with commas (<code>,</code>).</p>
-          <p class="default">* Prefixes ending with a colon are not read aloud.</p>
+          <p class="default">* Whether a prefix ends with a colon (<code>:</code>) decides whether the prefix itself is read aloud.</p>
+          <ul class="default">
+            <li><b>With a colon</b> (e.g. <code>yomical:</code>): the prefix is not spoken. "<code>yomical:</code>Dentist" → "Dentist"</li>
+            <li><b>Without a colon</b> (e.g. <code>Meeting</code>): the prefix is spoken too. "Meeting weekly" → "Meeting weekly"</li>
+          </ul>          
           <div class="example">Example: set <code>yomical:,rc:</code>, then add an event titled "<code>yomical:</code>Dentist" and it will be read aloud.</div>
         </div>
         <div class="setting">
           <h3>End-time prefixes (comma-separated)</h3>
           <p>Events whose titles start with one of these prefixes are read aloud at their end time, so you don't need to add a separate event to mark the end.</p>
           <p>If you set the same value as both a start prefix and an end-time prefix, the event is read aloud both when it starts and when it ends.</p>
-          <p class="default">* Prefixes ending with a colon are not read aloud.</p>
+          <p class="default">* Whether a prefix ends with a colon (<code>:</code>) decides whether the prefix itself is read aloud.</p>
+          <ul class="default">
+            <li><b>With a colon</b> (e.g. <code>yomical:</code>): the prefix is not spoken. "<code>yomical:</code>Dentist" → "Dentist"</li>
+            <li><b>Without a colon</b> (e.g. <code>Meeting</code>): the prefix is spoken too. "Meeting weekly" → "Meeting weekly"</li>
+          </ul>
           <div class="example">Example: set <code>ye:</code> and add "<code>ye:</code>Meeting" to be alerted when the meeting ends.</div>
         </div>
         <div class="setting">
