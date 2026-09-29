@@ -94,14 +94,22 @@
         <div class="setting" id="prefix">
           <h3>読み上げ対象にするプレフィックス（カンマ区切り）</h3>
           <p>ここで指定した文字で始まる予定だけを読み上げます。複数指定する場合はカンマ（<code>,</code>）で区切ります。</p>
-          <p class="default">※コロンを付けたプレフィックスは読み上げません。</p>
+          <p class="default">※プレフィックスの末尾にコロン（<code>:</code>）を付けるかどうかで、プレフィックスを読み上げるかを選べます。</p>
+          <ul class="default">
+            <li><b>コロンあり</b>（例：<code>yomical:</code>）… プレフィックスは読み上げません。「<code>yomical:</code>歯医者」→「歯医者」</li>
+            <li><b>コロンなし</b>（例：<code>会議</code>）… プレフィックスも読み上げます。「会議 定例」→「会議 定例」</li>
+          </ul>
           <div class="example">例：<code>yomical:,rc:</code> と設定し、カレンダーに「<code>yomical:</code>歯医者」と予定を登録すると、その予定が読み上げ対象になります。</div>
         </div>
         <div class="setting" id="end-prefix">
           <h3>終了時刻読み上げプレフィックス（カンマ区切り）</h3>
           <p>ここで指定した文字で始まる予定は、終了時刻に読み上げます。終了を知らせるための予定を別に追加する必要がありません。</p>
           <p>開始と終了のプレフィックスに共通した値を指定することで予定の前後で読み上げます。</p>
-          <p class="default">※コロンを付けたプレフィックスは読み上げません。</p>
+          <p class="default">※プレフィックスの末尾にコロン（<code>:</code>）を付けるかどうかで、プレフィックスを読み上げるかを選べます。</p>
+          <ul class="default">
+            <li><b>コロンあり</b>（例：<code>yomical:</code>）… プレフィックスは読み上げません。「<code>yomical:</code>歯医者」→「歯医者」</li>
+            <li><b>コロンなし</b>（例：<code>会議</code>）… プレフィックスも読み上げます。「会議 定例」→「会議 定例」</li>
+          </ul>
           <div class="example">例：<code>ye:</code> と設定し、「<code>ye:</code>会議」と登録すると、会議の終了時刻にもお知らせします。</div>
         </div>
         <div class="setting" id="end-alt">
