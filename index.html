@@ -9,10 +9,21 @@
 <meta property="og:description" content="Google カレンダーの予定を、設定した音量で読み上げるAndroidアプリ。">
 <meta property="og:image" content="assets/img/banner-ja.jpg">
 <meta property="og:type" content="website">
-<link rel="alternate" hreflang="en" href="en.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- langnav:hreflang:start -->
+<link rel="alternate" hreflang="ja" href="index.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="zh-Hans" href="zh.html">
+<link rel="alternate" hreflang="es" href="es.html">
+<link rel="alternate" hreflang="fr" href="fr.html">
+<link rel="alternate" hreflang="de" href="de.html">
+<link rel="alternate" hreflang="pt" href="pt.html">
+<link rel="alternate" hreflang="it" href="it.html">
+<link rel="alternate" hreflang="x-default" href="en.html">
+<!-- langnav:hreflang:end -->
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -29,8 +40,23 @@
       <a href="#settings">設定できる内容</a>
       <a href="#behavior">動作について</a>
       <a href="privacy.html">プライバシーポリシー</a>
-      <a class="lang" href="en.html">English</a>
     </nav>
+    <!-- langnav:menu:start -->
+    <details class="lang-menu">
+      <summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> 日本語</summary>
+      <ul>
+        <li><a href="index.html" lang="ja" hreflang="ja" aria-current="page">日本語</a></li>
+        <li><a href="en.html" lang="en" hreflang="en">English</a></li>
+        <li><a href="ko.html" lang="ko" hreflang="ko">한국어</a></li>
+        <li><a href="zh.html" lang="zh-Hans" hreflang="zh-Hans">中文（简体）</a></li>
+        <li><a href="es.html" lang="es" hreflang="es">Español</a></li>
+        <li><a href="fr.html" lang="fr" hreflang="fr">Français</a></li>
+        <li><a href="de.html" lang="de" hreflang="de">Deutsch</a></li>
+        <li><a href="pt.html" lang="pt" hreflang="pt">Português</a></li>
+        <li><a href="it.html" lang="it" hreflang="it">Italiano</a></li>
+      </ul>
+    </details>
+    <!-- langnav:menu:end -->
   </div>
 </header>
 
@@ -66,6 +92,7 @@
       <li>通知欄に予定が出ていても気づかない。</li>
       <li>予定の時刻にアラーム音を設定したが、何の予定だったか思い出せない。</li>
       <li>アラーム音だと、とっさに止めてしまい、予定があったことを忘れる。</li>
+      <li>旅行や出張など、何日も続く予定を途中で忘れてしまう。</li>
     </ul>
     <p class="solve">よみカレなら、決まった音量で予定の内容そのものを読み上げるので、聞き逃しを防げます。</p>
   </section>
@@ -73,112 +100,142 @@
   <section id="settings">
     <span class="eyebrow">SETTINGS</span>
     <h2>設定できる内容</h2>
+    <p>設定は目的ごとに5つのグループに分かれています。グループの見出しをタップすると開閉し、閉じているときは見出しの下に今の設定の要約が表示されます。<b>設定は変更したその場で保存されます。</b></p>
 
-    <!-- 画面1 -->
+    <!-- 全体・言語・その他 -->
     <div class="settings-group">
       <figure class="shot">
-        <img src="assets/img/settings-1.jpg" width="540" height="1045" alt="設定画面1：音量・プレフィックス設定" loading="lazy">
-        <figcaption>設定画面（1/3）</figcaption>
+        <img src="assets/img/settings-top.webp" width="900" height="2000" alt="設定画面：グループの一覧と「その他」グループ" loading="lazy">
+        <figcaption>設定画面の全体（「その他」を開いた状態）</figcaption>
       </figure>
       <div>
-        <div class="setting" id="volume">
-          <h3>音量設定</h3>
-          <p>読み上げるときの音量の決め方を選びます。</p>
+        <div class="setting" id="language">
+          <h3>言語</h3>
+          <p>画面と読み上げの言語を選びます。日本語・英語・韓国語・中国語（簡体字）・スペイン語・フランス語・ドイツ語・ポルトガル語・イタリア語に対応しています。</p>
           <ul>
-            <li><b>OSのボリュームに従う</b>：端末の音量設定のまま読み上げます。</li>
-            <li><b>アプリ固定音量を指定</b>：端末の音量に関係なく、下のスライダーで決めた音量（0〜100%）で読み上げます。</li>
-            <li><b>バイブレーションのみ</b>：音は出さず、バイブレーションだけでお知らせします。</li>
+            <li><b>端末の言語に従う</b>：端末の言語で表示・読み上げします。対応していない言語の場合は英語になります。</li>
+            <li>選んだ言語の音声が端末に入っていない場合は、英語で読み上げます。</li>
+            <li>予定のタイトルが別の言語の場合（英語の設定で日本語のタイトルなど）は、その部分だけその言語の音声で読み上げます。</li>
           </ul>
-          <p>「この音量でテスト再生」で、実際の聞こえ方を確認できます。</p>
         </div>
+        <div class="setting" id="other">
+          <h3>その他</h3>
+          <ul>
+            <li><b>テーマ</b>：画面の配色を「システムに従う／ライト／ダーク」から選びます。</li>
+            <li><b>起動時に自動で常駐を開始する</b>：チェックを入れると、端末の再起動後も自動でよみカレが動き始めます。</li>
+          </ul>
+        </div>
+        <div class="setting" id="start">
+          <h3>サービスを開始する</h3>
+          <p>画面下のボタンで、読み上げサービス（常駐）を開始します。必要な権限の確認もここで行います。設定は変更した時点で保存されているので、このボタンで保存する必要はありません。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 読み上げる予定 -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-targets.webp" width="900" height="2000" alt="設定画面：「読み上げる予定」グループ" loading="lazy">
+        <figcaption>読み上げる予定</figcaption>
+      </figure>
+      <div>
         <div class="setting" id="prefix">
           <h3>読み上げ対象にするプレフィックス（カンマ区切り）</h3>
           <p>ここで指定した文字で始まる予定だけを読み上げます。複数指定する場合はカンマ（<code>,</code>）で区切ります。</p>
-          <p class="default">※プレフィックスの末尾にコロン（<code>:</code>）を付けるかどうかで、プレフィックスを読み上げるかを選べます。</p>
+          <p class="default">※プレフィックスの最後がコロン（全角<code>：</code>・半角<code>:</code>）かどうかで、プレフィックスを読み上げるかが決まります。</p>
           <ul class="default">
-            <li><b>コロンあり</b>（例：<code>yomical:</code>）… プレフィックスは読み上げません。「<code>yomical:</code>歯医者」→「歯医者」</li>
-            <li><b>コロンなし</b>（例：<code>会議</code>）… プレフィックスも読み上げます。「会議 定例」→「会議 定例」</li>
+            <li><b>コロンで終わる</b>（例：<code>yomical:</code>）… プレフィックスは読み上げません。「<code>yomical:</code>歯医者」→「歯医者」</li>
+            <li><b>コロンで終わらない</b>（例：<code>会議</code>）… プレフィックスもタイトルと一緒に読み上げます。「会議 定例」→「会議 定例」</li>
           </ul>
           <div class="example">例：<code>yomical:,rc:</code> と設定し、カレンダーに「<code>yomical:</code>歯医者」と予定を登録すると、その予定が読み上げ対象になります。</div>
         </div>
-        <div class="setting" id="end-prefix">
-          <h3>終了時刻読み上げプレフィックス（カンマ区切り）</h3>
-          <p>ここで指定した文字で始まる予定は、終了時刻に読み上げます。終了を知らせるための予定を別に追加する必要はありません。</p>
-          <p>読み上げ対象のプレフィックスと同じ値を指定すると、開始時刻と終了時刻の両方で読み上げます。</p>
-
-          <p class="default">※プレフィックスの末尾にコロン（<code>:</code>）を付けるかどうかで、プレフィックスを読み上げるかを選べます。</p>
-          <ul class="default">
-            <li><b>コロンあり</b>（例：<code>yomical:</code>）… プレフィックスは読み上げません。「<code>yomical:</code>歯医者」→「歯医者」</li>
-            <li><b>コロンなし</b>（例：<code>会議</code>）… プレフィックスも読み上げます。「会議 定例」→「会議 定例」</li>
-          </ul>
-          <div class="example">例：<code>ye:</code> と設定し、「<code>ye:</code>会議」と登録すると、会議の終了時刻にお知らせします。</div>
-        </div>
-        <div class="setting" id="end-alt">
-          <h3>終了時に代替で読み上げる</h3>
-          <p>オンにすると、終了時刻プレフィックスがついている予定のタイトルの代わりに、指定した文章で読み上げます。</p>
-          <p class="default">文章の例：「終了時刻を迎える予定があります」</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 画面2 -->
-    <div class="settings-group">
-      <figure class="shot">
-        <img src="assets/img/settings-2.jpg" width="540" height="1045" alt="設定画面2：自動停止・読み上げオプション・言語・テーマ" loading="lazy">
-        <figcaption>設定画面（2/3）</figcaption>
-      </figure>
-      <div>
-        <div class="setting" id="auto-stop">
-          <h3>アラーム自動停止タイマー</h3>
-          <p>お知らせを自動で止めるまでの時間を、スライダーで設定します。止め忘れても、設定した時間が過ぎると自動で停止します。</p>
-          <p class="default">画面の例：5分</p>
-        </div>
-        <div class="setting" id="read-options">
-          <h3>読み上げオプション</h3>
-          <ul>
-            <li><b>予定の詳細（説明文）も読み上げる</b>：タイトルに加えて、予定の説明欄の内容も読み上げます。</li>
-            <li><b>音声再生と同時にバイブレーションを鳴らす</b>：読み上げと一緒に端末を振動させます。</li>
-          </ul>
-        </div>
-        <div class="setting" id="language">
-          <h3>言語</h3>
-          <p>アプリの表示言語を選びます。</p>
-        </div>
-        <div class="setting" id="theme">
-          <h3>テーマ</h3>
-          <p>画面の配色（ダークなど）を選びます。</p>
-        </div>
-        <div class="setting" id="allday">
-          <h3>終日予定の読み上げ時刻</h3>
-          <p>終日予定には開始時刻がないため、何時に読み上げるかをここで指定します。</p>
-          <p class="default">画面の例：7:00</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- 画面3 -->
-    <div class="settings-group">
-      <figure class="shot">
-        <img src="assets/img/settings-3.jpg" width="540" height="1045" alt="設定画面3：プレフィックスなし予定・起動時設定・カレンダーフィルター" loading="lazy">
-        <figcaption>設定画面（3/3）</figcaption>
-      </figure>
-      <div>
         <div class="setting" id="no-prefix">
           <h3>プレフィックスなし予定も通知</h3>
-          <p>オンにすると、プレフィックス（<code>yomical:</code> など）がついていない通常の予定も、指定した固定文章で読み上げます。</p>
-          <p class="default">文章の例：「詳細をご確認ください。」</p>
-        </div>
-        <div class="setting" id="boot">
-          <h3>起動時設定</h3>
-          <p>「起動時に自動で常駐を開始する」にチェックを入れると、端末の再起動後も自動でよみカレが動き始めます。</p>
+          <p>オンにすると、プレフィックスがついていない通常の予定も、指定した文章で読み上げます。予定の内容は読み上げず、予定があることだけを知らせます。</p>
+          <p class="default">文章を空欄にすると、既定の文章（「詳細をご確認ください。」）で読み上げます。</p>
         </div>
         <div class="setting" id="filter">
           <h3>カレンダーフィルター</h3>
-          <p>「カレンダーアカウントで絞り込む」をオンにすると、選択したカレンダーの予定だけを読み上げます。</p>
+          <p>「カレンダーアカウントで絞り込む」をオンにすると、選択したアカウントのカレンダーの予定だけを読み上げます。仕事用のアカウントを除いたり、読み上げ専用のアカウントを作ったりできます。</p>
         </div>
-        <div class="setting" id="save">
-          <h3>設定を保存してサービスを開始する</h3>
-          <p>設定を変更したら、画面下のこのボタンを押してください。設定が保存され、読み上げサービスが開始します。</p>
+        <div class="setting" id="reminder-mode">
+          <h3>通知の読み上げ方法</h3>
+          <p>予定に複数の通知（例：30分前と10分前）が設定されているときの読み上げ方を選びます。</p>
+          <ul>
+            <li><b>最初の通知のみ読み上げる</b>：いちばん早い通知の時刻に1回だけ読み上げます。</li>
+            <li><b>全ての通知をそれぞれ読み上げる</b>：通知の時刻ごとに読み上げます。</li>
+          </ul>
+        </div>
+        <div class="setting" id="skip-no-reminder">
+          <h3>通知が設定されていない予定は読み上げない</h3>
+          <p>チェックを入れると、通知を設定していない予定は読み上げません（終日予定は対象外）。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 読み上げ方 -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-reading.webp" width="900" height="2000" alt="設定画面：「読み上げ方」グループ" loading="lazy">
+        <figcaption>読み上げ方</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="read-description">
+          <h3>予定の詳細（説明文）も読み上げる</h3>
+          <p>タイトルに加えて、予定の説明欄の内容も読み上げます。</p>
+        </div>
+        <div class="setting" id="read-time">
+          <h3>読み上げの最初に現在時刻を読み上げる</h3>
+          <p>読み上げの最初に、今の時刻を読み上げます。繰り返し読み上げるたびに、その時点の時刻になります。</p>
+          <div class="example">例：「8時5分です。10分後に予定があります。会議。」</div>
+        </div>
+        <div class="setting" id="multi-day">
+          <h3>複数日にまたがる予定を、2日目以降も毎日読み上げる</h3>
+          <p>旅行や出張など何日も続く予定を、2日目以降も毎日、終日予定の読み上げ時刻に「終日の予定」として読み上げます。最終日も、その時刻にまだ予定が続いていれば読み上げます。</p>
+          <div class="example">例：10/10 10:00〜10/12 18:00 の予定 → 10/10 は開始時刻、10/11 と 10/12 は終日予定の時刻（7:00 など）に読み上げ</div>
+        </div>
+        <div class="setting" id="allday">
+          <h3>終日予定の読み上げ時刻</h3>
+          <p>終日予定には開始時刻がないため、何時に読み上げるかをここで指定します。複数日にまたがる予定の2日目以降も、この時刻に読み上げます。</p>
+          <p class="default">初期設定：7:00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 終了時刻の読み上げ・音とバイブ -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-sound.webp" width="900" height="2000" alt="設定画面：「終了時刻の読み上げ」と「音とバイブ」グループ" loading="lazy">
+        <figcaption>終了時刻の読み上げ（閉じた状態）・音とバイブ</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="end-prefix">
+          <h3>終了時刻の読み上げ</h3>
+          <p>終了時刻読み上げプレフィックス（カンマ区切り）で指定した文字で始まる予定は、終了時刻に読み上げます。終了を知らせるための予定を別に追加する必要はありません。</p>
+          <p>読み上げ対象のプレフィックスと同じ値を指定すると、開始時刻と終了時刻の両方で読み上げます。コロンの扱いは、読み上げ対象のプレフィックスと同じです。</p>
+          <div class="example">例：<code>ye:</code> と設定し、「<code>ye:</code>会議」と登録すると、会議の終了時刻にお知らせします。</div>
+          <p><b>終了時に代替で読み上げる</b>：オンにすると、予定のタイトルの代わりに指定した文章で読み上げます。</p>
+          <p class="default">文章を空欄にすると、既定の文章（「終了時刻を迎える予定があります」）で読み上げます。</p>
+        </div>
+        <div class="setting" id="volume">
+          <h3>音量</h3>
+          <p>読み上げるときの音量の決め方を選びます。</p>
+          <ul>
+            <li><b>OSのボリュームに従う</b>：端末の音量設定のまま読み上げます。</li>
+            <li><b>アプリ固定音量を指定</b>：端末の音量に関係なく、スライダーで決めた音量（0〜100%）で読み上げます。</li>
+            <li><b>徐々に音量を上げる（最大：固定音量）</b>：スライダーの音量の3/5から始めて、5秒ごとに4/5、5/5と上げていきます。</li>
+            <li><b>バイブレーションのみ</b>：音は出さず、バイブレーションだけでお知らせします。</li>
+          </ul>
+          <p>「この音量でテスト再生」で、実際の読み上げと同じように繰り返し再生して、聞こえ方を確認できます。読み上げ中に変更したアラーム音量は、読み上げが終わると元に戻ります。</p>
+        </div>
+        <div class="setting" id="vibrate">
+          <h3>音声再生と同時にバイブレーションを鳴らす</h3>
+          <p>読み上げと一緒に端末を振動させます。</p>
+        </div>
+        <div class="setting" id="auto-stop">
+          <h3>アラーム自動停止タイマー</h3>
+          <p>お知らせを自動で止めるまでの時間を、スライダーで設定します（1〜15分）。止め忘れても、設定した時間が過ぎると自動で停止します。</p>
+          <p class="default">初期設定：5分</p>
         </div>
       </div>
     </div>
@@ -192,8 +249,9 @@
         <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h3l5-4v12l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span>読み上げについて</h3>
         <ul>
           <li>セキュリティ上の観点により、<b>指定したプレフィックスの予定のみ</b>読み上げます。</li>
-          <li>セキュリティ上の観点により、<b>指定したメールアドレスに紐づく予定のみ</b>読み上げることができます。</li>
+          <li>カレンダーフィルターで、<b>指定したアカウントの予定のみ</b>読み上げることもできます。</li>
           <li>同時刻帯に複数の予定がある場合、<b>開始時刻が早いものから</b>読み上げます。</li>
+          <li>読み上げは、自動停止タイマーの時間になるまで<b>繰り返します</b>。</li>
         </ul>
         <h4>プレフィックス無しの予定を読み上げる場合</h4>
         <ul>
@@ -204,28 +262,39 @@
         <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>通知欄について</h3>
         <ul>
           <li>常駐を開始した後、<b>常駐の解除は通知欄から</b>行えます。Androidの起動時に自動で常駐を開始した場合も同様です。</li>
-          <li>次の予定を読み上げる必要がない場合は、<b>スキップ</b>できます。</li>
-          <li>読み上げ開始時の通知から<b>スヌーズ</b>できます。5分後に読み上げを再開します。</li>
+          <li>通知欄には<b>次に読み上げる予定</b>が表示されます。読み上げる必要がない場合は、<b>スキップ</b>できます。</li>
+          <li>読み上げ開始時の通知から<b>スヌーズ</b>できます。5分後に読み上げを再開します。スヌーズ中に時刻を迎えた予定も、再開時にまとめて読み上げます。</li>
           <li>読み上げている内容を<b>画面に表示して確認</b>できます。</li>
           <li>読み上げ時刻が過ぎた予定も<b>後から確認</b>できます。</li>
         </ul>
       </div>
       <div class="op-card">
-        <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>待機画面について</h3>
+        <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>読み上げ中の画面について</h3>
         <ul>
           <li>読み上げ時には、アラームのように画面が表示されます。<b>スヌーズ</b>と<b>停止</b>ボタンで操作できます。</li>
           <li>読み上げ時間が経過した後も画面は残るため、読み上げた予定があったことを確認できます。</li>
+          <li>ホーム画面のアイコンは、<b>今日の日付</b>に切り替わります。</li>
+        </ul>
+      </div>
+      <div class="op-card">
+        <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>他のアプリと重なったとき</h3>
+        <ul>
+          <li>時計アプリのアラームや電話と重なった場合は、<b>そちらを優先して読み上げを一時停止</b>し、終わったら再開します。一時停止中は、読み上げ中の画面にその旨を表示します。</li>
+          <li>読み上げ中に音楽などの再生を始めた場合は、<b>スヌーズ</b>と同じ扱いになり、5分後に読み上げを再開します。</li>
+          <li>読み上げ音声（TTS）が使えない場合は、<b>アラーム音</b>でお知らせします。</li>
+          <li>どのような場合も、<b>自動停止タイマーの時間＋2分</b>で必ず止まります。</li>
         </ul>
       </div>
     </div>
-    <p class="note"><b>ご注意：</b>アラーム（時計アプリなど）と同時に動作した場合、時刻どおりに読み上げられないことがあります。</p>
   </section>
 
 </main>
 
 <footer class="site-footer">
   <a href="privacy.html">プライバシーポリシー</a>
-  <a href="en.html">English</a>
+  <!-- langnav:footer:start -->
+  <div class="footer-langs"><a href="index.html" lang="ja" hreflang="ja">日本語</a><a href="en.html" lang="en" hreflang="en">English</a><a href="ko.html" lang="ko" hreflang="ko">한국어</a><a href="zh.html" lang="zh-Hans" hreflang="zh-Hans">中文（简体）</a><a href="es.html" lang="es" hreflang="es">Español</a><a href="fr.html" lang="fr" hreflang="fr">Français</a><a href="de.html" lang="de" hreflang="de">Deutsch</a><a href="pt.html" lang="pt" hreflang="pt">Português</a><a href="it.html" lang="it" hreflang="it">Italiano</a></div>
+  <!-- langnav:footer:end -->
   <p style="margin:8px 0 0">© 2026 よみカレ</p>
 </footer>
 

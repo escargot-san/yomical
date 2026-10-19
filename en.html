@@ -9,10 +9,21 @@
 <meta property="og:description" content="An Android app that reads your Google Calendar events aloud at the volume you choose.">
 <meta property="og:image" content="assets/img/banner-en.jpg">
 <meta property="og:type" content="website">
-<link rel="alternate" hreflang="ja" href="index.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;800&display=swap" rel="stylesheet">
+<!-- langnav:hreflang:start -->
+<link rel="alternate" hreflang="ja" href="index.html">
+<link rel="alternate" hreflang="en" href="en.html">
+<link rel="alternate" hreflang="ko" href="ko.html">
+<link rel="alternate" hreflang="zh-Hans" href="zh.html">
+<link rel="alternate" hreflang="es" href="es.html">
+<link rel="alternate" hreflang="fr" href="fr.html">
+<link rel="alternate" hreflang="de" href="de.html">
+<link rel="alternate" hreflang="pt" href="pt.html">
+<link rel="alternate" hreflang="it" href="it.html">
+<link rel="alternate" hreflang="x-default" href="en.html">
+<!-- langnav:hreflang:end -->
 <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
@@ -29,8 +40,23 @@
       <a href="#settings">Settings</a>
       <a href="#behavior">How it works</a>
       <a href="privacy-en.html">Privacy</a>
-      <a class="lang" href="index.html">日本語</a>
     </nav>
+    <!-- langnav:menu:start -->
+    <details class="lang-menu">
+      <summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> English</summary>
+      <ul>
+        <li><a href="index.html" lang="ja" hreflang="ja">日本語</a></li>
+        <li><a href="en.html" lang="en" hreflang="en" aria-current="page">English</a></li>
+        <li><a href="ko.html" lang="ko" hreflang="ko">한국어</a></li>
+        <li><a href="zh.html" lang="zh-Hans" hreflang="zh-Hans">中文（简体）</a></li>
+        <li><a href="es.html" lang="es" hreflang="es">Español</a></li>
+        <li><a href="fr.html" lang="fr" hreflang="fr">Français</a></li>
+        <li><a href="de.html" lang="de" hreflang="de">Deutsch</a></li>
+        <li><a href="pt.html" lang="pt" hreflang="pt">Português</a></li>
+        <li><a href="it.html" lang="it" hreflang="it">Italiano</a></li>
+      </ul>
+    </details>
+    <!-- langnav:menu:end -->
   </div>
 </header>
 
@@ -66,6 +92,7 @@
       <li>The event is in your notification shade, but you never see it.</li>
       <li>You set an alarm for an event, but can't remember what it was for.</li>
       <li>You stop the alarm on reflex and forget you had somewhere to be.</li>
+      <li>You forget about a trip or business trip that lasts several days.</li>
     </ul>
     <p class="solve">YomiCal speaks the event itself at a fixed volume, so you don't miss it.</p>
   </section>
@@ -73,105 +100,143 @@
   <section id="settings">
     <span class="eyebrow">SETTINGS</span>
     <h2>Settings</h2>
+    <p>Settings are organized into five groups. Tap a group's heading to open or close it; when closed, a summary of the current settings is shown under the heading. <b>Changes are saved as soon as you make them.</b></p>
     <p class="default">Screenshots show the Japanese UI.</p>
 
+    <!-- Overview, language, other -->
     <div class="settings-group">
       <figure class="shot">
-        <img src="assets/img/settings-1.jpg" width="540" height="1045" alt="Settings screen 1: volume and prefixes" loading="lazy">
-        <figcaption>Settings (1/3)</figcaption>
+        <img src="assets/img/settings-top.webp" width="900" height="2000" alt="Settings screen: list of groups with the Other group open" loading="lazy">
+        <figcaption>Settings overview (Other opened)</figcaption>
       </figure>
       <div>
-        <div class="setting">
+        <div class="setting" id="language">
+          <h3>Language</h3>
+          <p>Choose the language for the screen and the read-out. Available in Japanese, English, Korean, Chinese (Simplified), Spanish, French, German, Portuguese and Italian.</p>
+          <ul>
+            <li><b>Follow device language</b>: uses your phone's language. If it isn't supported, English is used.</li>
+            <li>If your phone doesn't have a voice for the selected language, events are read in English.</li>
+            <li>If an event title is in another language (for example, a Japanese title with English selected), that part is read with a voice for that language.</li>
+          </ul>
+        </div>
+        <div class="setting" id="other">
+          <h3>Other</h3>
+          <ul>
+            <li><b>Theme</b>: choose Follow system, Light or Dark.</li>
+            <li><b>Start monitoring automatically on device boot</b>: YomiCal starts running again after your phone restarts.</li>
+          </ul>
+        </div>
+        <div class="setting" id="start">
+          <h3>Start service</h3>
+          <p>The button at the bottom starts the read-out service and checks the required permissions. Settings are already saved when you change them, so you don't need this button to save.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Events to read -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-targets.webp" width="900" height="2000" alt="Settings screen: Events to read" loading="lazy">
+        <figcaption>Events to read</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="prefix">
+          <h3>Reading prefixes (comma separated)</h3>
+          <p>Only events whose titles start with one of these prefixes are read aloud. Separate multiple prefixes with commas (<code>,</code>).</p>
+          <p class="default">* Whether a prefix ends with a colon (<code>:</code> or full-width <code>：</code>) decides whether the prefix itself is read aloud.</p>
+          <ul class="default">
+            <li><b>Ends with a colon</b> (e.g. <code>yomical:</code>): the prefix is not spoken. "<code>yomical:</code>Dentist" → "Dentist"</li>
+            <li><b>Doesn't end with a colon</b> (e.g. <code>Meeting</code>): the prefix is spoken as part of the title. "Meeting weekly" → "Meeting weekly"</li>
+          </ul>
+          <div class="example">Example: set <code>yomical:,rc:</code>, then add an event titled "<code>yomical:</code>Dentist" and it will be read aloud.</div>
+        </div>
+        <div class="setting" id="no-prefix">
+          <h3>Notify events without prefix</h3>
+          <p>When on, regular events without a prefix are also announced using a text you set. The event itself isn't read out, only that you have an event.</p>
+          <p class="default">If the text is left empty, the default text ("Please check your schedule.") is used.</p>
+        </div>
+        <div class="setting" id="filter">
+          <h3>Calendar filter</h3>
+          <p>Turn on "Filter by calendar account" to read aloud only events from the accounts you select. You can exclude a work account, or set up an account just for read-outs.</p>
+        </div>
+        <div class="setting" id="reminder-mode">
+          <h3>Reminder reading mode</h3>
+          <p>Choose what happens when an event has several reminders (for example, 30 and 10 minutes before).</p>
+          <ul>
+            <li><b>Read first reminder only</b>: reads once, at the earliest reminder.</li>
+            <li><b>Read all reminders separately</b>: reads at each reminder time.</li>
+          </ul>
+        </div>
+        <div class="setting" id="skip-no-reminder">
+          <h3>Skip events with no reminder set</h3>
+          <p>When checked, events without any reminder are not read aloud (all-day events are not affected).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- How to read -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-reading.webp" width="900" height="2000" alt="Settings screen: How to read" loading="lazy">
+        <figcaption>How to read</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="read-description">
+          <h3>Read event description aloud</h3>
+          <p>Reads the event's description after the title.</p>
+        </div>
+        <div class="setting" id="read-time">
+          <h3>Read the current time first</h3>
+          <p>Starts each read-out with the current time. Each repeat uses the time at that moment.</p>
+          <div class="example">Example: "It's 8:05. Meeting, in 10 minutes."</div>
+        </div>
+        <div class="setting" id="multi-day">
+          <h3>Read multi-day events every day</h3>
+          <p>Events that last several days, such as trips, are also read out on the following days, at the all-day event time, as an all-day event. The last day is included if the event is still going on at that time.</p>
+          <div class="example">Example: an event from 10/10 10:00 to 10/12 18:00 → read at its start on 10/10, and at the all-day event time (such as 7:00) on 10/11 and 10/12</div>
+        </div>
+        <div class="setting" id="allday">
+          <h3>Read-aloud time for all-day events</h3>
+          <p>All-day events have no start time, so choose when they should be read aloud. The following days of multi-day events are also read at this time.</p>
+          <p class="default">Default: 7:00</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- End-time reading, sound & vibration -->
+    <div class="settings-group">
+      <figure class="shot">
+        <img src="assets/img/settings-sound.webp" width="900" height="2000" alt="Settings screen: End-time reading (closed) and Sound &amp; vibration" loading="lazy">
+        <figcaption>End-time reading (closed), Sound &amp; vibration</figcaption>
+      </figure>
+      <div>
+        <div class="setting" id="end-prefix">
+          <h3>End-time reading</h3>
+          <p>Events whose titles start with one of the end-time reading prefixes (comma separated) are read aloud at their end time, so you don't need to add a separate event to mark the end.</p>
+          <p>If you set the same value as a reading prefix, the event is read aloud at both its start and end times. Colons work the same way as for reading prefixes.</p>
+          <div class="example">Example: set <code>ye:</code> and add "<code>ye:</code>Meeting" to be alerted when the meeting ends.</div>
+          <p><b>Read substitute text at end time</b>: when on, events are announced with your text instead of their title.</p>
+          <p class="default">If the text is left empty, the default text ("An event is ending soon") is used.</p>
+        </div>
+        <div class="setting" id="volume">
           <h3>Volume</h3>
           <p>Choose how the read-out volume is decided.</p>
           <ul>
-            <li><b>Follow system volume</b>: uses your phone's current volume.</li>
+            <li><b>Follow OS volume</b>: uses your phone's current volume.</li>
             <li><b>Use fixed app volume</b>: reads at the volume set with the slider (0–100%), regardless of the phone's volume.</li>
-            <li><b>Vibrate only</b>: no sound, just vibration.</li>
+            <li><b>Gradually increase volume (max: fixed volume)</b>: starts at 3/5 of the slider volume and goes up to 4/5 and 5/5 every 5 seconds.</li>
+            <li><b>Vibration only</b>: no sound, just vibration.</li>
           </ul>
-          <p>Tap "Test playback at this volume" to hear how it sounds.</p>
+          <p>"Test volume" plays a sample repeatedly, just like a real read-out, so you can check how it sounds. Any alarm volume changed during a read-out is restored afterwards.</p>
         </div>
-        <div class="setting">
-          <h3>Prefixes to read aloud (comma-separated)</h3>
-          <p>Only events whose titles start with one of these prefixes are read aloud. Separate multiple prefixes with commas (<code>,</code>).</p>
-          <p class="default">* Whether a prefix ends with a colon (<code>:</code>) decides whether the prefix itself is read aloud.</p>
-          <ul class="default">
-            <li><b>With a colon</b> (e.g. <code>yomical:</code>): the prefix is not spoken. "<code>yomical:</code>Dentist" → "Dentist"</li>
-            <li><b>Without a colon</b> (e.g. <code>Meeting</code>): the prefix is spoken too. "Meeting weekly" → "Meeting weekly"</li>
-          </ul>          
-          <div class="example">Example: set <code>yomical:,rc:</code>, then add an event titled "<code>yomical:</code>Dentist" and it will be read aloud.</div>
+        <div class="setting" id="vibrate">
+          <h3>Vibrate while speaking</h3>
+          <p>Vibrates the phone during the read-out.</p>
         </div>
-        <div class="setting">
-          <h3>End-time prefixes (comma-separated)</h3>
-          <p>Events whose titles start with one of these prefixes are read aloud at their end time, so you don't need to add a separate event to mark the end.</p>
-          <p>If you set the same value here and in the prefixes to read aloud, the event is read aloud at both its start and end times.</p>
-          <p class="default">* Whether a prefix ends with a colon (<code>:</code>) decides whether the prefix itself is read aloud.</p>
-          <ul class="default">
-            <li><b>With a colon</b> (e.g. <code>yomical:</code>): the prefix is not spoken. "<code>yomical:</code>Dentist" → "Dentist"</li>
-            <li><b>Without a colon</b> (e.g. <code>Meeting</code>): the prefix is spoken too. "Meeting weekly" → "Meeting weekly"</li>
-          </ul>
-          <div class="example">Example: set <code>ye:</code> and add "<code>ye:</code>Meeting" to be alerted when the meeting ends.</div>
-        </div>
-        <div class="setting">
-          <h3>Use alternative text at end time</h3>
-          <p>When on, events with an end-time prefix are read using your custom text instead of the event title.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="settings-group">
-      <figure class="shot">
-        <img src="assets/img/settings-2.jpg" width="540" height="1045" alt="Settings screen 2: auto-stop, read-out options, language, theme" loading="lazy">
-        <figcaption>Settings (2/3)</figcaption>
-      </figure>
-      <div>
-        <div class="setting">
+        <div class="setting" id="auto-stop">
           <h3>Alarm auto-stop timer</h3>
-          <p>Set how long the alert keeps going before it stops automatically, so it won't keep running if you miss it.</p>
-        </div>
-        <div class="setting">
-          <h3>Read-out options</h3>
-          <ul>
-            <li><b>Also read event details (description)</b>: reads the event's description after the title.</li>
-            <li><b>Vibrate while speaking</b>: vibrates the phone during the read-out.</li>
-          </ul>
-        </div>
-        <div class="setting">
-          <h3>Language</h3>
-          <p>Choose the app's display language.</p>
-        </div>
-        <div class="setting">
-          <h3>Theme</h3>
-          <p>Choose the color scheme, such as dark.</p>
-        </div>
-        <div class="setting">
-          <h3>All-day event read-out time</h3>
-          <p>All-day events have no start time, so choose when they should be read aloud.</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="settings-group">
-      <figure class="shot">
-        <img src="assets/img/settings-3.jpg" width="540" height="1045" alt="Settings screen 3: events without prefix, startup, calendar filter" loading="lazy">
-        <figcaption>Settings (3/3)</figcaption>
-      </figure>
-      <div>
-        <div class="setting">
-          <h3>Also notify events without a prefix</h3>
-          <p>When on, regular events without a prefix (such as <code>yomical:</code>) are also announced, using a fixed text you set.</p>
-        </div>
-        <div class="setting">
-          <h3>Start on boot</h3>
-          <p>Check "Start automatically on boot" and YomiCal will begin running again after your phone restarts.</p>
-        </div>
-        <div class="setting">
-          <h3>Calendar filter</h3>
-          <p>Turn on "Filter by calendar account" to read aloud only events from the calendars you select.</p>
-        </div>
-        <div class="setting">
-          <h3>Save settings and start service</h3>
-          <p>After changing settings, tap this button at the bottom. Your settings are saved and the read-out service starts.</p>
+          <p>Set how long the alert keeps going before it stops automatically (1–15 minutes), so it won't keep running if you miss it.</p>
+          <p class="default">Default: 5 minutes</p>
         </div>
       </div>
     </div>
@@ -185,8 +250,9 @@
         <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10h3l5-4v12l-5-4H4z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></span>Read-outs</h3>
         <ul>
           <li>For security, only <b>events with the prefixes you set</b> are read aloud.</li>
-          <li>For security, only <b>events linked to the email addresses you select</b> can be read aloud.</li>
+          <li>With the calendar filter, you can also limit read-outs to <b>events from the accounts you select</b>.</li>
           <li>When several events fall in the same time slot, they are read <b>in order of start time</b>.</li>
+          <li>The read-out <b>repeats</b> until the auto-stop timer runs out.</li>
         </ul>
         <h4>When reading events without a prefix</h4>
         <ul>
@@ -197,28 +263,39 @@
         <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></span>Notification shade</h3>
         <ul>
           <li>Once the service is running, <b>stop it from the notification</b>. This also applies when it started automatically on boot.</li>
-          <li>If you don't need the next read-out, you can <b>skip</b> it.</li>
-          <li>You can <b>snooze</b> from the notification shown when a read-out starts. It resumes after 5 minutes.</li>
+          <li>The notification shows <b>the next event to be read</b>. If you don't need it, you can <b>skip</b> it.</li>
+          <li>You can <b>snooze</b> from the notification shown when a read-out starts. It resumes after 5 minutes, together with any events whose time came during the snooze.</li>
           <li>You can <b>view the text being read</b> on screen.</li>
           <li>You can <b>check past read-outs</b> after their time has passed.</li>
         </ul>
       </div>
       <div class="op-card">
-        <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>Alert screen</h3>
+        <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></span>Read-out screen</h3>
         <ul>
           <li>A screen appears like an alarm, with <b>Snooze</b> and <b>Stop</b> buttons.</li>
           <li>The screen stays after the read-out ends, so you can see that an event was announced.</li>
+          <li>The home screen icon shows <b>today's date</b>.</li>
+        </ul>
+      </div>
+      <div class="op-card">
+        <h3><span class="op-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1a73e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></span>With other apps</h3>
+        <ul>
+          <li>If a clock alarm or a phone call happens at the same time, YomiCal <b>pauses and lets it go first</b>, then resumes. While paused, the read-out screen says so.</li>
+          <li>If you start playing music or similar during a read-out, it is treated as a <b>snooze</b> and resumes after 5 minutes.</li>
+          <li>If text-to-speech isn't available, YomiCal alerts you with the <b>alarm sound</b> instead.</li>
+          <li>In any case, it always stops within <b>the auto-stop time plus 2 minutes</b>.</li>
         </ul>
       </div>
     </div>
-    <p class="note"><b>Note:</b> If an alarm (such as a clock app) goes off at the same time, the read-out may not happen exactly on time.</p>
   </section>
 
 </main>
 
 <footer class="site-footer">
   <a href="privacy-en.html">Privacy Policy</a>
-  <a href="index.html">日本語</a>
+  <!-- langnav:footer:start -->
+  <div class="footer-langs"><a href="index.html" lang="ja" hreflang="ja">日本語</a><a href="en.html" lang="en" hreflang="en">English</a><a href="ko.html" lang="ko" hreflang="ko">한국어</a><a href="zh.html" lang="zh-Hans" hreflang="zh-Hans">中文（简体）</a><a href="es.html" lang="es" hreflang="es">Español</a><a href="fr.html" lang="fr" hreflang="fr">Français</a><a href="de.html" lang="de" hreflang="de">Deutsch</a><a href="pt.html" lang="pt" hreflang="pt">Português</a><a href="it.html" lang="it" hreflang="it">Italiano</a></div>
+  <!-- langnav:footer:end -->
   <p style="margin:8px 0 0">© 2026 YomiCal</p>
 </footer>
 
