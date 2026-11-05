@@ -13,17 +13,17 @@ use strict;
 use warnings;
 binmode STDOUT, ':utf8';
 
-# [言語コード(hreflang), ヘルプのファイル, プライバシーポリシーのファイル, 表示名]
+# [言語コード(hreflang), ヘルプのファイル, プライバシーポリシーのファイル, 表示名, 変更履歴のファイル]
 my @langs = (
-    ['ja',      'index.html', 'privacy.html',    '日本語'],
-    ['en',      'en.html',    'privacy-en.html', 'English'],
-    ['ko',      'ko.html',    'privacy-ko.html', '한국어'],
-    ['zh-Hans', 'zh.html',    'privacy-zh.html', '中文（简体）'],
-    ['es',      'es.html',    'privacy-es.html', 'Español'],
-    ['fr',      'fr.html',    'privacy-fr.html', 'Français'],
-    ['de',      'de.html',    'privacy-de.html', 'Deutsch'],
-    ['pt',      'pt.html',    'privacy-pt.html', 'Português'],
-    ['it',      'it.html',    'privacy-it.html', 'Italiano'],
+    ['ja',      'index.html', 'privacy.html',    '日本語',       'changes.html'],
+    ['en',      'en.html',    'privacy-en.html', 'English',      'changes-en.html'],
+    ['ko',      'ko.html',    'privacy-ko.html', '한국어',       'changes-ko.html'],
+    ['zh-Hans', 'zh.html',    'privacy-zh.html', '中文（简体）', 'changes-zh.html'],
+    ['es',      'es.html',    'privacy-es.html', 'Español',      'changes-es.html'],
+    ['fr',      'fr.html',    'privacy-fr.html', 'Français',     'changes-fr.html'],
+    ['de',      'de.html',    'privacy-de.html', 'Deutsch',      'changes-de.html'],
+    ['pt',      'pt.html',    'privacy-pt.html', 'Português',    'changes-pt.html'],
+    ['it',      'it.html',    'privacy-it.html', 'Italiano',     'changes-it.html'],
 );
 my $default = 'en';  # x-default（言語が合わないときに案内するページ）
 
@@ -35,7 +35,7 @@ sub replace_block {
     die "$file: marker langnav:$name not found\n" unless $n;
 }
 
-for my $kind (1, 2) {  # 1 = ヘルプ, 2 = プライバシーポリシー
+for my $kind (1, 2, 4) {  # 1 = ヘルプ, 2 = プライバシーポリシー, 4 = 変更履歴
     for my $cur (@langs) {
         my $file = $cur->[$kind];
         open(my $in, '<:encoding(UTF-8)', $file) or die "$file: $!\n";
